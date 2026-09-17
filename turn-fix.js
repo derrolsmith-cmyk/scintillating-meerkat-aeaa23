@@ -1,0 +1,1 @@
+(()=>{const nativeSetTimeout=window.setTimeout,nativeClearTimeout=window.clearTimeout,active=new Set();window.setTimeout=(fn,ms,...args)=>{let id=nativeSetTimeout(()=>{active.delete(id);fn(...args)},ms);active.add(id);return id};window.clearTimeout=id=>{active.delete(id);return nativeClearTimeout(id)};window.__ricochetLaunchTimers=active})();
